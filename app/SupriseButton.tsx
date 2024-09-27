@@ -57,7 +57,7 @@ const SurpriseButton: React.FC<SurpriseButtonProps> = ({ disabled }) => {
       transition={{ duration: 0.5 }} // Smooth transition for the text
       className="mt-4 text-white text-lg font-semibold"
     >
-      🎁 Surprise! is Suprise... 🎁
+      🎁 Guess for the Surprise Gift! ... 🎁
     </motion.p>
   </div>
 </motion.div>
