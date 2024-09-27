@@ -34,7 +34,7 @@ export default function BirthdayCountdown() {
       >
         {isTimeUp
           ? "The Wait is Over—Happy Birthday, Riju!"
-          : "Riju's Big Day is Almost Here!"}
+          : "Riju's Birthday Day is Almost Here!"}
       </motion.h1>
 
       <CountdownTimer setIsTimeUp={setIsTimeUp} />
