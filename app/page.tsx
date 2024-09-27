@@ -32,7 +32,7 @@ export default function BirthdayCountdown() {
         transition={{ duration: 1 }}
         className="text-4xl md:text-6xl font-bold text-pink-600 mb-8 text-center z-10"
       >
-        {isTimeUp ? "Happy Birthday!" : "Birthday Countdown"}
+        {isTimeUp ? "Happy Birthday Riju!" : "Birthday Countdown"}
       </motion.h1>
 
       <CountdownTimer setIsTimeUp={setIsTimeUp} />
