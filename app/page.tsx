@@ -39,7 +39,7 @@ export default function BirthdayCountdown() {
 
       <CountdownTimer setIsTimeUp={setIsTimeUp} />
 
-      <SurpriseButton />
+      <SurpriseButton disabled={!isTimeUp}/>
 
       <MusicPlayer />
 

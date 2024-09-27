@@ -1,25 +1,34 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const SurpriseButton = () => {
-  const [showSurprise, setShowSurprise] = useState(false)
+interface SurpriseButtonProps {
+  disabled: boolean; // Accept a disabled prop
+}
+
+const SurpriseButton: React.FC<SurpriseButtonProps> = ({ disabled }) => {
+  const [showSurprise, setShowSurprise] = useState(false);
 
   const handleClick = () => {
-    setShowSurprise(true)
-    setTimeout(() => setShowSurprise(false), 3000) // Image will disappear after 3 seconds
-  }
+    if (!disabled) {
+      setShowSurprise(true);
+      setTimeout(() => setShowSurprise(false), 3000); // Image will disappear after 3 seconds
+    }
+  };
 
   return (
     <div className="mt-8 z-10">
       <motion.button
-        whileHover={{ scale: 1.1, backgroundColor: '#F472B6' }}
-        whileTap={{ scale: 0.9 }}
-        className="bg-pink-400 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300"
+        whileHover={!disabled ? { scale: 1.1, backgroundColor: '#F472B6' } : {}}
+        whileTap={!disabled ? { scale: 0.9 } : {}}
+        className={`bg-pink-400 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ${
+          disabled ? 'opacity-50 cursor-not-allowed' : ''
+        }`}
         onClick={handleClick}
+        disabled={disabled}
       >
-        Click for a Surprise!
+        {disabled ? 'Surprise Locked!' : 'Click for a Surprise!'}
       </motion.button>
 
       <AnimatePresence>
@@ -44,7 +53,7 @@ const SurpriseButton = () => {
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};
 
 export default SurpriseButton;
